@@ -17,11 +17,15 @@ describe('repeatString', () => {
     expect(repeatString('hey', -1)).toEqual('ERROR');
   });
   test('repeats the string a random amount of times', function () {
-    
+
     const number = Math.floor(Math.random() * 1000)
     expect(repeatString('hey', number).match(/((hey))/g).length).toEqual(number);
   });
   test('works with blank strings', () => {
     expect(repeatString('', 10)).toEqual('');
+  });
+
+  test('returns ERROR with non strings', () => {
+    expect(repeatString(123, 10)).toEqual('You need to pass a string to repeat');
   });
 });
